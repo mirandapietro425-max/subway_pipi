@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Full Screen Loading</title>
+    <style>
+        /* Remove todas as margens e barras de rolagem */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000; /* Fundo preto para evitar flashes brancos */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Container que garante que o GIF preencha a tela */
+        .gif-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+        }
+
+        /* O segredo do 'object-fit: cover' faz o GIF preencher a tela inteira
+           como se fosse um papel de parede, cortando as bordas se necessário
+           para não deixar espaços vazios. */
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Otimização para dispositivos móveis */
+        @media screen and (orientation: landscape) {
+            img {
+                object-fit: contain; /* Em paisagem, melhor não cortar tanto */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gif-container">
+        <!-- O arquivo deve estar na mesma pasta ou ser referenciado corretamente no App Inventor -->
+        <img src="subway_pipi_loading.gif" alt="Loading...">
+    </div>
+</body>
+</html>
